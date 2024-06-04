@@ -82,3 +82,31 @@ Once you have created your Dockerfile, build it using (in the same folder as you
 ``docker build -t my-app .`` 
 
 From here on you can either run it locally or upload it to the cloud!
+
+## Uploading a Docker image
+
+Uploading a docker image can differ slightly depending on the container registry we want to move it to.
+
+**What is Container Registry?** A Docker container registry is a storage and distribution system for Docker images, 
+allowing users to manage and share containerized applications.
+
+For this tutorial, I'll use the free to use Docker Hub which can be accessed by simply creating a Docker account. To be 
+able to upload an image to the docker we need to learn a few more concepts.
+
+**Tagging our images** --> Docker images usually have an ID we can use to delete them or move them. We can also tag the
+images (either at creation time or after) to more easily refer to them. To upload an image to a Docker registry, we need
+to rename our image to include the docker registry repository name and the name of our image, for example:
+
+`docker tag streamlit_demo matei9721/docker-streamlit-ds-demo:latest`
+
+Here we re-tagged our image called **streamlit_demo** as **matei9721/docker-streamlit-ds-demo:latest** where matei9721
+is the name of my repository. The **:latest** is the version of our image tag, where usually latest is the most up to date
+version. After that we can easily upload the image by running:
+
+`docker push matei9721/docker-streamlit-ds-demo:latest`
+
+For this command to work, we need to be logged into Github Hub (you can create an account on their page). Docker Hub is usually
+only used for self project, for real work, we'd usually use [Azure Container Registry](https://azure.microsoft.com/en-us/products/container-registry)
+or [AWS ECR (Elastic Container Registry)](https://aws.amazon.com/ecr/). To upload an image to these, we would follow the 
+exact same steps as above, but the log-in steps would differ (AWS uses SSO). It's best to check the official documentation
+page for more information.

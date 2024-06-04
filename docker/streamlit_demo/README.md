@@ -4,7 +4,7 @@ This demo shows how easy it is to deploy a Streamlit Application using Docker. T
 multiple pages which show what different functionalities one could implement with this set-up (serving a model, creating
 a chatbot, or visualizing data).
 
-The current code has been already conteinarized and pushed to Docker hub at 
+The current code has been already containerized and pushed to Docker hub at 
 https://hub.docker.com/r/matei9721/docker-streamlit-ds-demo/tags. To get started with this demo, the first step would be
 to try and pull and image and run it locally. We can begin by pulling the image:
 
